@@ -1,75 +1,957 @@
 <!doctype html>
 <html lang="ar" dir="rtl">
+
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#171c32"><title>مختبر الاشتقاق | ميل المماس</title>
-<style>
-:root{--bg:#111729;--panel:#1a2340;--panel2:#202d4b;--stroke:#37476a;--txt:#f1f5ff;--muted:#aab9d5;--mint:#74e6bb;--coral:#ffb38d;--purple:#b8a0ff;--gold:#ffe19e}
-*{box-sizing:border-box}html,body{margin:0;height:100%;width:100%;overflow:hidden}body{font-family:Tahoma,"Segoe UI",Arial,sans-serif;color:var(--txt);background:radial-gradient(ellipse at 82% -20%,#2a345e,transparent 48%),linear-gradient(145deg,#121a30,#101625);overscroll-behavior:none}button,input,select{font:inherit}button{cursor:pointer}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--mint);outline-offset:3px}.app{height:100vh;height:100dvh;display:flex;flex-direction:column;gap:10px;padding:clamp(8px,1.2vw,16px);max-width:1800px;margin:auto;min-height:0}.top{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;flex:0 0 auto}.brand{display:flex;gap:11px;align-items:center;min-width:0}.brandicon{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#73e6bd,#7fa9ed);color:#172040;font-size:24px;font-weight:bold;flex-shrink:0}.top h1{font-size:clamp(17px,2vw,24px);margin:0 0 3px;line-height:1.2}.top p{margin:0;color:var(--muted);font-size:clamp(10px,1vw,12px)}.chip{border:1px solid #3d5570;border-radius:99px;background:#1f3551;color:#a7f7d6;padding:7px 12px;font-size:12px;white-space:nowrap}.main{display:grid;grid-template-columns:minmax(215px,260px) minmax(0,1fr) minmax(215px,275px);gap:10px;flex:1 1 auto;min-height:0}.card{min-width:0;min-height:0;overflow:hidden;background:linear-gradient(160deg,#1c2744,#171f36);border:1px solid var(--stroke);border-radius:18px;box-shadow:0 13px 28px #0002}.settings,.insight{padding:clamp(10px,1.15vw,17px);display:flex;flex-direction:column;gap:12px}.card h2{font-size:clamp(14px,1.3vw,17px);margin:0;font-weight:800}.sub{font-size:11px;color:var(--muted);line-height:1.7}.divider{height:1px;background:var(--stroke);flex:none}.field{display:flex;flex-direction:column;gap:7px}.field label{font-size:12px;color:#d8e2f5;font-weight:700}.select{width:100%;background:#263454;border:1px solid #4b5d7d;border-radius:9px;padding:10px;color:var(--txt);font-size:12px}.number{display:flex;align-items:center;justify-content:space-between;gap:8px}.number strong{direction:ltr;color:var(--mint);font-size:15px}input[type=range]{width:100%;accent-color:var(--mint);margin:5px 0;min-height:23px;cursor:pointer}.toggles{display:flex;gap:6px;flex-wrap:wrap}.pill{border:1px solid #52627e;background:#263657;color:#d8e7f7;border-radius:10px;padding:8px 9px;font-size:11px;font-weight:700}.pill.active{border-color:#6de2b7;background:#235a56;color:#d9fff3}.wide{width:100%;padding:10px 12px;background:#287d72;color:white;border:1px solid #74e8c1;border-radius:11px;font-weight:bold;font-size:12px}.wide.secondary{background:#273955;border-color:#4c6b86}.hint{background:#263452;border:1px dashed #6982a1;border-radius:12px;color:#c9d8ec;padding:9px;font-size:11px;line-height:1.7}.graphcard{display:flex;flex-direction:column;padding:11px;gap:8px}.graphhead{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-shrink:0}.graphhead h2{font-size:16px}.keys{display:flex;gap:12px;flex-wrap:wrap;font-size:10px;color:var(--muted)}.keys i{display:inline-block;width:16px;height:4px;border-radius:2px;vertical-align:middle;margin-left:4px}.viewport{position:relative;flex:1 1 auto;min-height:0;overflow:hidden;border:1px solid #43547a;border-radius:13px;background:#121e37;touch-action:none}.viewport svg{display:block;width:100%;height:100%;touch-action:none;user-select:none;-webkit-user-select:none}.draghelp{position:absolute;right:9px;top:9px;pointer-events:none;background:#152742db;border:1px solid #537391;border-radius:9px;padding:6px 9px;font-size:10px;color:#d3e4fb}.grip{cursor:grab;touch-action:none}.grip:active{cursor:grabbing}.dataRow{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;flex:none}.datum{border:1px solid #344765;border-radius:11px;background:#1e2e4c;padding:8px;text-align:center;min-width:0}.datum span{display:block;font-size:10px;color:#b4c5df;line-height:1.5}.datum strong{display:block;direction:ltr;color:#f5f7fe;font-size:clamp(12px,1.25vw,18px);margin-top:3px;font-variant-numeric:tabular-nums}.datum strong.mint{color:var(--mint)}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:7px}.metric{border:1px solid #3e5372;border-radius:10px;background:#243450;padding:10px 8px}.metric span{font-size:10px;color:var(--muted);display:block}.metric strong{display:block;font-size:clamp(15px,1.7vw,21px);margin-top:5px;color:var(--mint);direction:ltr;text-align:right;font-variant-numeric:tabular-nums}.concept{background:#202e4c;border:1px solid #45617c;border-right:3px solid var(--purple);border-radius:11px;padding:12px;font-size:12px;line-height:1.9}.concept .formula{font-size:clamp(12px,1.35vw,17px);direction:ltr;text-align:center;color:var(--gold);margin:8px 0;font-family:Cambria,Georgia,serif}.challenge{background:#1c3446;border:1px solid #3c797b;border-radius:12px;padding:11px;display:flex;flex-direction:column;gap:8px}.challenge h3{margin:0;font-size:14px;color:#a8f6dc}.question{font-size:12px;line-height:1.8}.answer{display:flex;gap:7px;align-items:center}.answer input{min-width:0;width:100%;background:#101d31;color:#fff;border:1px solid #577991;border-radius:9px;padding:9px;direction:ltr;text-align:center}.answer button{background:#39b693;color:#092e2e;border:none;border-radius:9px;padding:9px 12px;font-size:12px;font-weight:bold}.feedback{font-size:11px;min-height:28px;line-height:1.6;color:#f0c7a3}.copyright{font-size:10px;text-align:center;color:#8293ae;flex:0 0 auto}
-@media(max-width:1050px){.main{grid-template-columns:minmax(180px,220px) minmax(0,1fr)}.insight{grid-column:1 / -1;flex-direction:row;align-items:stretch;gap:8px;padding:9px}.insight>h2,.insight>.divider{display:none}.insight>.metrics{flex:1}.insight>.concept{flex:1.3}.insight>.challenge{flex:1.1}.insight .sub{display:none}.metrics{grid-template-columns:1fr 1fr}}
-@media(max-width:700px){.app{gap:6px;padding:6px}.top{min-height:36px}.brandicon{width:32px;height:32px;font-size:19px}.top h1{font-size:15px}.top p{font-size:9px}.chip{font-size:10px;padding:5px 8px}.main{display:flex;flex-direction:column;gap:6px}.graphcard{order:0;flex:1 1 44%;min-height:0;padding:7px;gap:5px}.graphhead h2{font-size:12px}.keys{font-size:9px;gap:8px}.draghelp{top:5px;right:5px;font-size:9px;padding:3px 6px}.dataRow{gap:4px}.datum{padding:5px 3px;border-radius:8px}.datum span{font-size:9px}.datum strong{font-size:13px;margin-top:1px}.settings{order:1;flex:0 0 auto;padding:8px;gap:6px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center}.settings h2,.settings>.divider,.settings .sub,.settings .hint{display:none}.settings .field{gap:2px}.settings .field label{font-size:10px}.settings .select{padding:6px;font-size:11px}.settings .number strong{font-size:12px}.settings input[type=range]{min-height:18px;margin:0}.settings .toggles{justify-content:stretch;grid-column:1/-1}.settings .toggles .pill{flex:1;padding:5px;font-size:10px}.settings .wide{padding:7px;font-size:10px}.insight{order:2;display:grid;grid-template-columns:1fr 1fr;flex:0 0 auto;gap:5px;padding:7px}.insight .metrics{grid-column:1/-1;display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.insight .metric{padding:5px;min-width:0}.insight .metric span{font-size:8px}.insight .metric strong{font-size:12px;margin-top:1px}.insight .concept{padding:6px;font-size:9px;line-height:1.4}.insight .concept .formula{font-size:11px;margin:4px 0}.insight .challenge{padding:6px;gap:4px}.insight .challenge h3{font-size:11px}.insight .question{font-size:10px;line-height:1.5}.insight .answer{gap:4px}.insight .answer input,.insight .answer button{padding:5px;font-size:10px}.insight .feedback{font-size:9px;min-height:18px}.copyright{display:none}}
-@media(max-width:700px) and (max-height:680px){.top p,.keys,.insight .concept,.insight .metrics{display:none}.insight{grid-template-columns:1fr}.settings{padding:6px}.graphcard{flex-basis:55%}.insight .challenge{flex-direction:row;align-items:center}.insight .question{flex:1}.insight .answer{width:40%}.insight .feedback{max-width:25%}}
-@media(max-width:700px) and (orientation:landscape){.main{display:grid;grid-template-columns:180px minmax(0,1fr);grid-template-rows:minmax(0,1fr);gap:5px}.graphcard{grid-column:2;grid-row:1;min-height:0}.settings{grid-column:1;grid-row:1;display:flex;overflow:hidden;padding:7px;gap:4px}.settings .field{width:100%}.settings .toggles{width:100%}.settings .wide{width:100%}.insight{display:none}.top{min-height:30px}}
-@media(max-width:700px) and (orientation:portrait) and (min-height:850px){.graphcard{flex-basis:52%}}
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#171c32">
+    <title>مختبر الاشتقاق | ميل المماس</title>
+    <style>
+        :root {
+            --bg: #111729;
+            --panel: #1a2340;
+            --panel2: #202d4b;
+            --stroke: #37476a;
+            --txt: #f1f5ff;
+            --muted: #aab9d5;
+            --mint: #74e6bb;
+            --coral: #ffb38d;
+            --purple: #b8a0ff;
+            --gold: #ffe19e
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            margin: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden
+        }
+
+        body {
+            font-family: Tahoma, "Segoe UI", Arial, sans-serif;
+            color: var(--txt);
+            background: radial-gradient(ellipse at 82% -20%, #2a345e, transparent 48%), linear-gradient(145deg, #121a30, #101625);
+            overscroll-behavior: none
+        }
+
+        button,
+        input,
+        select {
+            font: inherit
+        }
+
+        button {
+            cursor: pointer
+        }
+
+        button:focus-visible,
+        input:focus-visible,
+        select:focus-visible {
+            outline: 2px solid var(--mint);
+            outline-offset: 3px
+        }
+
+        .app {
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: clamp(8px, 1.2vw, 16px);
+            max-width: 1800px;
+            margin: auto;
+            min-height: 0
+        }
+
+        .top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            min-height: 48px;
+            flex: 0 0 auto
+        }
+
+        .brand {
+            display: flex;
+            gap: 11px;
+            align-items: center;
+            min-width: 0
+        }
+
+        .brandicon {
+            width: 40px;
+            height: 40px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: linear-gradient(135deg, #73e6bd, #7fa9ed);
+            color: #172040;
+            font-size: 24px;
+            font-weight: bold;
+            flex-shrink: 0
+        }
+
+        .top h1 {
+            font-size: clamp(17px, 2vw, 24px);
+            margin: 0 0 3px;
+            line-height: 1.2
+        }
+
+        .top p {
+            margin: 0;
+            color: var(--muted);
+            font-size: clamp(10px, 1vw, 12px)
+        }
+
+        .chip {
+            border: 1px solid #3d5570;
+            border-radius: 99px;
+            background: #1f3551;
+            color: #a7f7d6;
+            padding: 7px 12px;
+            font-size: 12px;
+            white-space: nowrap
+        }
+
+        .main {
+            display: grid;
+            grid-template-columns: minmax(215px, 260px) minmax(0, 1fr) minmax(215px, 275px);
+            gap: 10px;
+            flex: 1 1 auto;
+            min-height: 0
+        }
+
+        .card {
+            min-width: 0;
+            min-height: 0;
+            overflow: hidden;
+            background: linear-gradient(160deg, #1c2744, #171f36);
+            border: 1px solid var(--stroke);
+            border-radius: 18px;
+            box-shadow: 0 13px 28px #0002
+        }
+
+        .settings,
+        .insight {
+            padding: clamp(10px, 1.15vw, 17px);
+            display: flex;
+            flex-direction: column;
+            gap: 12px
+        }
+
+        .card h2 {
+            font-size: clamp(14px, 1.3vw, 17px);
+            margin: 0;
+            font-weight: 800
+        }
+
+        .sub {
+            font-size: 11px;
+            color: var(--muted);
+            line-height: 1.7
+        }
+
+        .divider {
+            height: 1px;
+            background: var(--stroke);
+            flex: none
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 7px
+        }
+
+        .field label {
+            font-size: 12px;
+            color: #d8e2f5;
+            font-weight: 700
+        }
+
+        .select {
+            width: 100%;
+            background: #263454;
+            border: 1px solid #4b5d7d;
+            border-radius: 9px;
+            padding: 10px;
+            color: var(--txt);
+            font-size: 12px
+        }
+
+        .number {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px
+        }
+
+        .number strong {
+            direction: ltr;
+            color: var(--mint);
+            font-size: 15px
+        }
+
+        input[type=range] {
+            width: 100%;
+            accent-color: var(--mint);
+            margin: 5px 0;
+            min-height: 23px;
+            cursor: pointer
+        }
+
+        .toggles {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap
+        }
+
+        .pill {
+            border: 1px solid #52627e;
+            background: #263657;
+            color: #d8e7f7;
+            border-radius: 10px;
+            padding: 8px 9px;
+            font-size: 11px;
+            font-weight: 700
+        }
+
+        .pill.active {
+            border-color: #6de2b7;
+            background: #235a56;
+            color: #d9fff3
+        }
+
+        .wide {
+            width: 100%;
+            padding: 10px 12px;
+            background: #287d72;
+            color: white;
+            border: 1px solid #74e8c1;
+            border-radius: 11px;
+            font-weight: bold;
+            font-size: 12px
+        }
+
+        .wide.secondary {
+            background: #273955;
+            border-color: #4c6b86
+        }
+
+        .hint {
+            background: #263452;
+            border: 1px dashed #6982a1;
+            border-radius: 12px;
+            color: #c9d8ec;
+            padding: 9px;
+            font-size: 11px;
+            line-height: 1.7
+        }
+
+        .graphcard {
+            display: flex;
+            flex-direction: column;
+            padding: 11px;
+            gap: 8px
+        }
+
+        .graphhead {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-shrink: 0
+        }
+
+        .graphhead h2 {
+            font-size: 16px
+        }
+
+        .keys {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-size: 10px;
+            color: var(--muted)
+        }
+
+        .keys i {
+            display: inline-block;
+            width: 16px;
+            height: 4px;
+            border-radius: 2px;
+            vertical-align: middle;
+            margin-left: 4px
+        }
+
+        .viewport {
+            position: relative;
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow: hidden;
+            border: 1px solid #43547a;
+            border-radius: 13px;
+            background: #121e37;
+            touch-action: none
+        }
+
+        .viewport svg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            touch-action: none;
+            user-select: none;
+            -webkit-user-select: none
+        }
+
+        .draghelp {
+            position: absolute;
+            right: 9px;
+            top: 9px;
+            pointer-events: none;
+            background: #152742db;
+            border: 1px solid #537391;
+            border-radius: 9px;
+            padding: 6px 9px;
+            font-size: 10px;
+            color: #d3e4fb
+        }
+
+        .grip {
+            cursor: grab;
+            touch-action: none
+        }
+
+        .grip:active {
+            cursor: grabbing
+        }
+
+        .dataRow {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 6px;
+            flex: none
+        }
+
+        .datum {
+            border: 1px solid #344765;
+            border-radius: 11px;
+            background: #1e2e4c;
+            padding: 8px;
+            text-align: center;
+            min-width: 0
+        }
+
+        .datum span {
+            display: block;
+            font-size: 10px;
+            color: #b4c5df;
+            line-height: 1.5
+        }
+
+        .datum strong {
+            display: block;
+            direction: ltr;
+            color: #f5f7fe;
+            font-size: clamp(12px, 1.25vw, 18px);
+            margin-top: 3px;
+            font-variant-numeric: tabular-nums
+        }
+
+        .datum strong.mint {
+            color: var(--mint)
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7px
+        }
+
+        .metric {
+            border: 1px solid #3e5372;
+            border-radius: 10px;
+            background: #243450;
+            padding: 10px 8px
+        }
+
+        .metric span {
+            font-size: 10px;
+            color: var(--muted);
+            display: block
+        }
+
+        .metric strong {
+            display: block;
+            font-size: clamp(15px, 1.7vw, 21px);
+            margin-top: 5px;
+            color: var(--mint);
+            direction: ltr;
+            text-align: right;
+            font-variant-numeric: tabular-nums
+        }
+
+        .concept {
+            background: #202e4c;
+            border: 1px solid #45617c;
+            border-right: 3px solid var(--purple);
+            border-radius: 11px;
+            padding: 12px;
+            font-size: 12px;
+            line-height: 1.9
+        }
+
+        .concept .formula {
+            unicode-bidi: isolate;
+            font-size: clamp(12px, 1.35vw, 17px);
+            direction: ltr;
+            text-align: center;
+            color: var(--gold);
+            margin: 8px 0;
+            font-family: Cambria, Georgia, serif
+        }
+
+        .challenge {
+            background: #1c3446;
+            border: 1px solid #3c797b;
+            border-radius: 12px;
+            padding: 11px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px
+        }
+
+        .challenge h3 {
+            margin: 0;
+            font-size: 14px;
+            color: #a8f6dc
+        }
+
+        .question {
+            font-size: 12px;
+            line-height: 1.8
+        }
+
+        .answer {
+            display: flex;
+            gap: 7px;
+            align-items: center
+        }
+
+        .answer input {
+            min-width: 0;
+            width: 100%;
+            background: #101d31;
+            color: #fff;
+            border: 1px solid #577991;
+            border-radius: 9px;
+            padding: 9px;
+            direction: ltr;
+            text-align: center
+        }
+
+        .answer button {
+            background: #39b693;
+            color: #092e2e;
+            border: none;
+            border-radius: 9px;
+            padding: 9px 12px;
+            font-size: 12px;
+            font-weight: bold
+        }
+
+        .feedback {
+            font-size: 11px;
+            min-height: 28px;
+            line-height: 1.6;
+            color: #f0c7a3
+        }
+
+        .copyright {
+            font-size: 10px;
+            text-align: center;
+            color: #8293ae;
+            flex: 0 0 auto
+        }
+
+        @media(max-width:1050px) {
+            .main {
+                grid-template-columns: minmax(180px, 220px) minmax(0, 1fr)
+            }
+
+            .insight {
+                grid-column: 1 / -1;
+                flex-direction: row;
+                align-items: stretch;
+                gap: 8px;
+                padding: 9px
+            }
+
+            .insight>h2,
+            .insight>.divider {
+                display: none
+            }
+
+            .insight>.metrics {
+                flex: 1
+            }
+
+            .insight>.concept {
+                flex: 1.3
+            }
+
+            .insight>.challenge {
+                flex: 1.1
+            }
+
+            .insight .sub {
+                display: none
+            }
+
+            .metrics {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:700px) {
+            .app {
+                gap: 6px;
+                padding: 6px
+            }
+
+            .top {
+                min-height: 36px
+            }
+
+            .brandicon {
+                width: 32px;
+                height: 32px;
+                font-size: 19px
+            }
+
+            .top h1 {
+                font-size: 15px
+            }
+
+            .top p {
+                font-size: 9px
+            }
+
+            .chip {
+                font-size: 10px;
+                padding: 5px 8px
+            }
+
+            .main {
+                display: flex;
+                flex-direction: column;
+                gap: 6px
+            }
+
+            .graphcard {
+                order: 0;
+                flex: 1 1 44%;
+                min-height: 0;
+                padding: 7px;
+                gap: 5px
+            }
+
+            .graphhead h2 {
+                font-size: 12px
+            }
+
+            .keys {
+                font-size: 9px;
+                gap: 8px
+            }
+
+            .draghelp {
+                top: 5px;
+                right: 5px;
+                font-size: 9px;
+                padding: 3px 6px
+            }
+
+            .dataRow {
+                gap: 4px
+            }
+
+            .datum {
+                padding: 5px 3px;
+                border-radius: 8px
+            }
+
+            .datum span {
+                font-size: 9px
+            }
+
+            .datum strong {
+                font-size: 13px;
+                margin-top: 1px
+            }
+
+            .settings {
+                order: 1;
+                flex: 0 0 auto;
+                padding: 8px;
+                gap: 6px;
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                align-items: center
+            }
+
+            .settings h2,
+            .settings>.divider,
+            .settings .sub,
+            .settings .hint {
+                display: none
+            }
+
+            .settings .field {
+                gap: 2px
+            }
+
+            .settings .field label {
+                font-size: 10px
+            }
+
+            .settings .select {
+                padding: 6px;
+                font-size: 11px
+            }
+
+            .settings .number strong {
+                font-size: 12px
+            }
+
+            .settings input[type=range] {
+                min-height: 18px;
+                margin: 0
+            }
+
+            .settings .toggles {
+                justify-content: stretch;
+                grid-column: 1/-1
+            }
+
+            .settings .toggles .pill {
+                flex: 1;
+                padding: 5px;
+                font-size: 10px
+            }
+
+            .settings .wide {
+                padding: 7px;
+                font-size: 10px
+            }
+
+            .insight {
+                order: 2;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                flex: 0 0 auto;
+                gap: 5px;
+                padding: 7px
+            }
+
+            .insight .metrics {
+                grid-column: 1/-1;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 4px
+            }
+
+            .insight .metric {
+                padding: 5px;
+                min-width: 0
+            }
+
+            .insight .metric span {
+                font-size: 8px
+            }
+
+            .insight .metric strong {
+                font-size: 12px;
+                margin-top: 1px
+            }
+
+            .insight .concept {
+                padding: 6px;
+                font-size: 9px;
+                line-height: 1.4
+            }
+
+            .insight .concept .formula {
+                unicode-bidi: isolate;
+                font-size: 11px;
+                margin: 4px 0
+            }
+
+            .insight .challenge {
+                padding: 6px;
+                gap: 4px
+            }
+
+            .insight .challenge h3 {
+                font-size: 11px
+            }
+
+            .insight .question {
+                font-size: 10px;
+                line-height: 1.5
+            }
+
+            .insight .answer {
+                gap: 4px
+            }
+
+            .insight .answer input,
+            .insight .answer button {
+                padding: 5px;
+                font-size: 10px
+            }
+
+            .insight .feedback {
+                font-size: 9px;
+                min-height: 18px
+            }
+
+            .copyright {
+                display: none
+            }
+        }
+
+        @media(max-width:700px) and (max-height:680px) {
+
+            .top p,
+            .keys,
+            .insight .concept,
+            .insight .metrics {
+                display: none
+            }
+
+            .insight {
+                grid-template-columns: 1fr
+            }
+
+            .settings {
+                padding: 6px
+            }
+
+            .graphcard {
+                flex-basis: 55%
+            }
+
+            .insight .challenge {
+                flex-direction: row;
+                align-items: center
+            }
+
+            .insight .question {
+                flex: 1
+            }
+
+            .insight .answer {
+                width: 40%
+            }
+
+            .insight .feedback {
+                max-width: 25%
+            }
+        }
+
+        @media(max-width:700px) and (orientation:landscape) {
+            .main {
+                display: grid;
+                grid-template-columns: 180px minmax(0, 1fr);
+                grid-template-rows: minmax(0, 1fr);
+                gap: 5px
+            }
+
+            .graphcard {
+                grid-column: 2;
+                grid-row: 1;
+                min-height: 0
+            }
+
+            .settings {
+                grid-column: 1;
+                grid-row: 1;
+                display: flex;
+                overflow: hidden;
+                padding: 7px;
+                gap: 4px
+            }
+
+            .settings .field {
+                width: 100%
+            }
+
+            .settings .toggles {
+                width: 100%
+            }
+
+            .settings .wide {
+                width: 100%
+            }
+
+            .insight {
+                display: none
+            }
+
+            .top {
+                min-height: 30px
+            }
+        }
+
+        @media(max-width:700px) and (orientation:portrait) and (min-height:850px) {
+            .graphcard {
+                flex-basis: 52%
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                animation: none !important;
+                transition: none !important
+            }
+        }
+    </style>
 </head>
-<body><div class="app">
-<header class="top"><div class="brand"><div class="brandicon">ƒ′</div><div><h1>مختبر الاشتقاق التفاعلي</h1><p>الوحدة الثالثة: النهايات والمشتقات · الدرس الثاني: الاشتقاق</p></div></div><span class="chip">تعلّم بالملاحظة والتجربة</span></header>
-<main class="main">
-<section class="card settings" aria-label="أدوات التجربة"><h2>اضبط تجربتك</h2><div class="divider"></div>
-<div class="field"><label for="function">اختر الاقتران</label><select class="select" id="function"><option value="sq">د(س) = س²</option><option value="cube">د(س) = س³ / 3</option><option value="sin">د(س) = 2 جا(س)</option><option value="parabola">د(س) = (س − 1)² − 2</option></select></div>
-<div class="field"><div class="number"><label for="at">موضع نقطة التماس (أ)</label><strong id="atValue">1.00</strong></div><input type="range" id="at" min="-3" max="3" value="1" step="0.05"></div>
-<div class="field"><div class="number"><label for="delta">المسافة الأفقية (هـ)</label><strong id="deltaValue">1.50</strong></div><input type="range" id="delta" min="-2.5" max="2.5" value="1.5" step="0.05"></div>
-<div class="toggles"><button type="button" class="pill active" id="showSec">إظهار القاطع</button><button type="button" class="pill active" id="showTan">إظهار المماس</button></div>
-<button class="wide" id="approach">قَرِّب هـ من الصفر ◀</button><button class="wide secondary" id="reset">↺ إعادة التجربة</button>
-<div class="hint"><strong>جرّب بنفسك:</strong> اسحب النقطة البنفسجية أو الخضراء على المنحنى. لاحظ كيف يقترب ميل القاطع من ميل المماس عندما تقترب هـ من الصفر.</div>
-</section>
-<section class="card graphcard"><div class="graphhead"><h2>من القاطع إلى المماس</h2><div class="keys"><span><i style="background:var(--purple)"></i>القاطع</span><span><i style="background:var(--mint)"></i>المماس</span><span><i style="background:var(--coral)"></i>المنحنى</span></div></div>
-<div class="viewport" id="chartWrap"><svg id="chart" viewBox="0 0 860 520" role="img" aria-label="منحنى اقتران تفاعلي مع القاطع والمماس"><defs><pattern id="minor" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#445676" stroke-width="0.65" opacity=".30"/></pattern></defs><rect width="860" height="520" fill="url(#minor)"/></svg></div>
-<div class="dataRow"><div class="datum"><span>موضع أ</span><strong id="dA">1.00</strong></div><div class="datum"><span>المسافة هـ</span><strong id="dH">1.50</strong></div><div class="datum"><span>الميل اللحظي د′(أ)</span><strong class="mint" id="dSlope">2.00</strong></div></div></section>
-<aside class="card insight"><h2>ما الذي تلاحظه؟</h2><div class="divider"></div><div class="metrics"><div class="metric"><span>ميل القاطع</span><strong id="secSlope">3.50</strong></div><div class="metric"><span>ميل المماس</span><strong id="tanSlope">2.00</strong></div></div>
-<div class="concept"><strong>الفكرة الرياضية</strong><div class="formula">د′(أ) = lim<sub>هـ→0</sub> [د(أ+هـ)−د(أ)] / هـ</div><span id="insightText">كلما صغرت المسافة هـ، اقترب ميل القاطع من ميل المماس.</span></div>
-<div class="challenge"><h3>🎯 تحدّي المشتقة</h3><div id="question" class="question">عند أ = 1، ما ميل المماس للاقتران د(س) = س²؟</div><div class="answer"><input type="number" id="answer" step="any" placeholder="إجابتك" aria-label="أدخل ميل المماس"><button type="button" id="check">تحقّق</button></div><div id="feedback" class="feedback" aria-live="polite">اكتب إجابتك، ثم اضغط تحقّق.</div><button class="pill" id="next" type="button">تحدٍّ آخر ←</button></div></aside>
-</main><div class="copyright">تجربة تعليمية استكشافية · تمثيل بياني ونموذج رياضي تفاعلي للاشتقاق</div></div>
-<script>
-(()=>{'use strict';
-const $=id=>document.getElementById(id),svg=$('chart'),NS='http://www.w3.org/2000/svg';
-const W=860,H=520,px=76,py=34,plotW=730,plotH=448,xmin=-4,xmax=4,ymin=-6,ymax=6;
-const X=x=>px+(x-xmin)/(xmax-xmin)*plotW,Y=y=>py+(ymax-y)/(ymax-ymin)*plotH;
-const fns={sq:{f:x=>x*x,df:x=>2*x},cube:{f:x=>x*x*x/3,df:x=>x*x},sin:{f:x=>2*Math.sin(x),df:x=>2*Math.cos(x)},parabola:{f:x=>(x-1)**2-2,df:x=>2*(x-1)}};
-let state={fn:'sq',a:1,h:1.5,sec:true,tan:true};let drag=null,raf=0;const clamp=(v,l,r)=>Math.max(l,Math.min(r,v));
-function node(tag,attrs={},parent=svg,text){const e=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,String(v));if(text!==undefined)e.textContent=text;parent.appendChild(e);return e}
-function line(x1,y1,x2,y2,color,width=2,dash=''){return node('line',{x1,y1,x2,y2,stroke:color,'stroke-width':width,'stroke-linecap':'round',...(dash?{'stroke-dasharray':dash}:{})})}
-function txt(x,y,val,color='#b9c7dd',size=13,anchor='middle'){return node('text',{x,y,fill:color,'font-size':size,'text-anchor':anchor,'font-family':'Tahoma, Arial, sans-serif','pointer-events':'none'},svg,val)}
-function draw(){raf=0;const fn=fns[state.fn],{a,h}=state,fa=fn.f(a),b=a+h,fb=fn.f(b),df=fn.df(a),slope=(Math.abs(h)<1e-8)?df:(fb-fa)/h;
-svg.replaceChildren();node('rect',{width:W,height:H,fill:'#14223d'});for(let i=-4;i<=4;i+=.5)line(X(i),py,X(i),py+plotH,'#334666',i%1===0?1.15:.55);for(let i=-6;i<=6;i++)line(px,Y(i),px+plotW,Y(i),'#334666',i%2===0?1.15:.55);
-line(X(0),py,X(0),py+plotH,'#8294b6',2);line(px,Y(0),px+plotW,Y(0),'#8294b6',2);for(let i=-4;i<=4;i++)if(i!==0)txt(X(i),Y(0)+18,i,'#94a7c9',12);for(let i=-6;i<=6;i+=2)if(i!==0)txt(X(0)-11,Y(i)+4,i,'#94a7c9',12,'end');txt(X(0)+13,Y(0)+18,'0','#ccd6e9',12,'start');txt(px+plotW-6,Y(0)-10,'س','#bfd6e9',16);txt(X(0)+13,py+14,'ص','#bfd6e9',16);
-let curve='';for(let i=0;i<=500;i++){let x=xmin+(xmax-xmin)*i/500,y=fn.f(x);curve+=(i?'L':'M')+X(x).toFixed(2)+','+Y(y).toFixed(2)}node('path',{d:curve,fill:'none',stroke:'#ffb38d','stroke-width':3.6,'stroke-linejoin':'round'});
-const projected=(originX,originY,m)=>{let x1=-4,x2=4;return [X(x1),Y(originY+m*(x1-originX)),X(x2),Y(originY+m*(x2-originX))]};
-if(state.sec){const coords=projected(a,fa,slope);line(...coords,'#b8a0ff',3,'9 6');line(X(a),Y(fa),X(b),Y(fb),'#b8a0ff',3.8)}
-if(state.tan){const coords=projected(a,fa,df);line(...coords,'#74e6bb',3.4)}
-if(Math.abs(h)>0.015){line(X(a),Y(fa),X(b),Y(fa),'#90a5c7',1.5,'4 6');line(X(b),Y(fa),X(b),Y(fb),'#90a5c7',1.5,'4 6')}
-const g1=node('g',{class:'grip','data-grip':'a',role:'slider',tabindex:0,'aria-label':'اسحب نقطة أ لتغيير موضع التماس'});node('circle',{cx:X(a),cy:Y(fa),r:21,fill:'#74e6bb',opacity:.14,stroke:'#74e6bb','stroke-width':2},g1);node('circle',{cx:X(a),cy:Y(fa),r:8,fill:'#74e6bb',stroke:'#fff','stroke-width':2.5},g1);
-const g2=node('g',{class:'grip','data-grip':'b',role:'slider',tabindex:0,'aria-label':'اسحب النقطة ب لتغيير مسافة القاطع'});node('circle',{cx:X(b),cy:Y(fb),r:23,fill:'#b8a0ff',opacity:.19,stroke:'#b8a0ff','stroke-width':2},g2);node('circle',{cx:X(b),cy:Y(fb),r:9,fill:'#b8a0ff',stroke:'#fff','stroke-width':2.7},g2);
-const keep=(n,l,r)=>clamp(n,l,r);txt(keep(X(a)-15,px+13,px+plotW-20),keep(Y(fa)-17,py+16,py+plotH-10),'أ','#b1ffe2',15);txt(keep(X(b)+17,px+13,px+plotW-20),keep(Y(fb)-17,py+16,py+plotH-10),'ب','#dfd2ff',15);
-$('atValue').textContent=a.toFixed(2);$('deltaValue').textContent=h.toFixed(2);$('dA').textContent=a.toFixed(2);$('dH').textContent=h.toFixed(2);$('dSlope').textContent=df.toFixed(2);$('secSlope').textContent=slope.toFixed(2);$('tanSlope').textContent=df.toFixed(2);
-$('insightText').textContent=Math.abs(h)<.05?'الآن اقتربت النقطة ب من أ؛ ميل القاطع يكاد يساوي ميل المماس.':`فرق الميلين = ${Math.abs(slope-df).toFixed(3)}. حرّك النقطة البنفسجية باتجاه الخضراء لتقليل الفرق.`;
-}
-function schedule(){if(!raf)raf=requestAnimationFrame(draw)}function setA(a){state.a=clamp(Math.round(a*20)/20,-3,3);$('at').value=state.a;schedule()}function setH(h){state.h=clamp(Math.round(h*20)/20,-2.5,2.5);$('delta').value=state.h;schedule()}
-function pos(e){const p=svg.createSVGPoint();p.x=e.clientX;p.y=e.clientY;const m=svg.getScreenCTM();return m?p.matrixTransform(m.inverse()):null}
-function toX(e){const p=pos(e);return p?xmin+(p.x-px)/plotW*(xmax-xmin):null}
-svg.addEventListener('pointerdown',e=>{const t=e.target.closest('[data-grip]');if(!t)return;drag={which:t.dataset.grip,id:e.pointerId};svg.setPointerCapture(e.pointerId);e.preventDefault()});
-svg.addEventListener('pointermove',e=>{if(!drag||e.pointerId!==drag.id)return;const x=toX(e);if(x==null)return;if(drag.which==='a')setA(x);else setH(x-state.a);e.preventDefault()});
-function end(e){if(drag&&drag.id===e.pointerId){drag=null;try{svg.releasePointerCapture(e.pointerId)}catch(_){}}}svg.addEventListener('pointerup',end);svg.addEventListener('pointercancel',end);
-svg.addEventListener('keydown',e=>{const g=e.target.closest('[data-grip]');if(!g||!['ArrowLeft','ArrowRight'].includes(e.key))return;e.preventDefault();const dx=e.key==='ArrowRight'?.05:-.05;if(g.dataset.grip==='a')setA(state.a+dx);else setH(state.h+dx)});
-$('function').addEventListener('change',e=>{state.fn=e.target.value;schedule()});$('at').addEventListener('input',e=>setA(+e.target.value));$('delta').addEventListener('input',e=>setH(+e.target.value));
-for(const [id,key] of [['showSec','sec'],['showTan','tan']])$(id).onclick=()=>{state[key]=!state[key];$(id).classList.toggle('active',state[key]);schedule()};
-let run=0;$('approach').onclick=()=>{cancelAnimationFrame(run);let count=0;const move=()=>{state.h*=.84;if(Math.abs(state.h)<.03)state.h=0;state.h=Math.round(state.h*10000)/10000;$('delta').value=state.h;schedule();if(++count<35&&state.h!==0)run=requestAnimationFrame(move)};run=requestAnimationFrame(move)};
-$('reset').onclick=()=>{cancelAnimationFrame(run);state={fn:'sq',a:1,h:1.5,sec:true,tan:true};$('function').value='sq';$('at').value=1;$('delta').value=1.5;$('showSec').classList.add('active');$('showTan').classList.add('active');$('feedback').textContent='اكتب إجابتك، ثم اضغط تحقّق.';schedule()};
-const questions=[{fn:'sq',a:1,q:'عند أ = 1، ما ميل المماس للاقتران د(س) = س²؟',ans:2},{fn:'sq',a:-2,q:'إذا د(س) = س²، فما قيمة د′(−2)؟',ans:-4},{fn:'cube',a:2,q:'إذا د(س) = س³/3، فما ميل المماس عند أ = 2؟',ans:4},{fn:'parabola',a:1,q:'د(س) = (س − 1)² − 2، ما ميل المماس عند أ = 1؟',ans:0},{fn:'sin',a:0,q:'إذا د(س) = 2 جا(س)، فما ميل المماس عند أ = 0؟',ans:2}];let index=0;
-function question(){const q=questions[index];$('question').textContent=q.q;$('answer').value='';$('feedback').textContent='اكتب إجابتك، ثم اضغط تحقّق.';state.fn=q.fn;state.a=q.a;state.h=1.5;$('function').value=q.fn;$('at').value=q.a;$('delta').value=1.5;schedule()}
-$('check').onclick=()=>{const raw=$('answer').value;if(!raw.trim()){$('feedback').textContent='أدخل إجابتك أولًا.';return}const n=Number(raw);if(!Number.isFinite(n)){$('feedback').textContent='أدخل عددًا صحيحًا.';return}const good=Math.abs(n-questions[index].ans)<.02;$('feedback').textContent=good?'✓ صحيح! ميل المماس هو قيمة المشتقة عند أ.':`حاول مرة أخرى: قرّب هـ من الصفر وقارن ميل القاطع بالميل اللحظي.`;$('feedback').style.color=good?'#83efbb':'#ffb38d'};
-$('answer').addEventListener('keydown',e=>{if(e.key==='Enter')$('check').click()});$('next').onclick=()=>{index=(index+1)%questions.length;question()};draw();
-})();
-</script></body></html>
+
+<body>
+    <div class="app">
+        <header class="top">
+            <div class="brand">
+                <div class="brandicon">ƒ′</div>
+                <div>
+                    <h1>مختبر الاشتقاق التفاعلي</h1>
+                    <p>الوحدة الثالثة: النهايات والمشتقات · الدرس الثاني: الاشتقاق</p>
+                </div>
+            </div><span class="chip">تعلّم بالملاحظة والتجربة</span>
+        </header>
+        <main class="main">
+            <section class="card settings" aria-label="أدوات التجربة">
+                <h2>اضبط تجربتك</h2>
+                <div class="divider"></div>
+                <div class="field"><label for="function">اختر الاقتران</label><select class="select" id="function"
+                        dir="ltr">
+                        <option value="sq">f(x) = x²</option>
+                        <option value="cube">f(x) = x³ / 3</option>
+                        <option value="sin">f(x) = 2 sin(x)</option>
+                        <option value="parabola">f(x) = (x − 1)² − 2</option>
+                    </select></div>
+                <div class="field">
+                    <div class="number"><label for="at">موضع نقطة التماس (a)</label><strong id="atValue">1.00</strong>
+                    </div><input type="range" id="at" min="-3" max="3" value="1" step="0.05">
+                </div>
+                <div class="field">
+                    <div class="number"><label for="delta">المسافة الأفقية (h)</label><strong
+                            id="deltaValue">1.50</strong></div><input type="range" id="delta" min="-2.5" max="2.5"
+                        value="1.5" step="0.05">
+                </div>
+                <div class="toggles"><button type="button" class="pill active" id="showSec">إظهار القاطع</button><button
+                        type="button" class="pill active" id="showTan">إظهار المماس</button></div>
+                <button class="wide" id="approach">قَرِّب h من الصفر ◀</button><button class="wide secondary"
+                    id="reset">↺ إعادة التجربة</button>
+                <div class="hint"><strong>جرّب بنفسك:</strong> اسحب النقطة البنفسجية أو الخضراء على المنحنى. لاحظ كيف
+                    يقترب ميل القاطع من ميل المماس عندما تقترب h من الصفر.</div>
+            </section>
+            <section class="card graphcard">
+                <div class="graphhead">
+                    <h2>من القاطع إلى المماس</h2>
+                    <div class="keys"><span><i style="background:var(--purple)"></i>القاطع</span><span><i
+                                style="background:var(--mint)"></i>المماس</span><span><i
+                                style="background:var(--coral)"></i>المنحنى</span></div>
+                </div>
+                <div class="viewport" id="chartWrap"><svg id="chart" viewBox="0 0 860 520" role="img"
+                        aria-label="منحنى اقتران تفاعلي مع القاطع والمماس">
+                        <defs>
+                            <pattern id="minor" width="32" height="32" patternUnits="userSpaceOnUse">
+                                <path d="M32 0H0V32" fill="none" stroke="#445676" stroke-width="0.65" opacity=".30" />
+                            </pattern>
+                        </defs>
+                        <rect width="860" height="520" fill="url(#minor)" />
+                    </svg></div>
+                <div class="dataRow">
+                    <div class="datum"><span>موضع a</span><strong id="dA">1.00</strong></div>
+                    <div class="datum"><span>المسافة h</span><strong id="dH">1.50</strong></div>
+                    <div class="datum"><span>الميل اللحظي f′(a)</span><strong class="mint" id="dSlope">2.00</strong>
+                    </div>
+                </div>
+            </section>
+            <aside class="card insight">
+                <h2>ما الذي تلاحظه؟</h2>
+                <div class="divider"></div>
+                <div class="metrics">
+                    <div class="metric"><span>ميل القاطع</span><strong id="secSlope">3.50</strong></div>
+                    <div class="metric"><span>ميل المماس</span><strong id="tanSlope">2.00</strong></div>
+                </div>
+                <div class="concept"><strong>الفكرة الرياضية</strong>
+                    <div class="formula">f′(a) = lim<sub>h→0</sub> [f(a+h)−f(a)] / h</div><span id="insightText">كلما
+                        صغرت المسافة h، اقترب ميل القاطع من ميل المماس.</span>
+                </div>
+                <div class="challenge">
+                    <h3>🎯 تحدّي المشتقة</h3>
+                    <div id="question" class="question">عند a = 1، ما ميل المماس للاقتران f(x) = x²؟</div>
+                    <div class="answer"><input type="number" id="answer" step="any" placeholder="إجابتك"
+                            aria-label="أدخل ميل المماس"><button type="button" id="check">تحقّق</button></div>
+                    <div id="feedback" class="feedback" aria-live="polite">اكتب إجابتك، ثم اضغط تحقّق.</div><button
+                        class="pill" id="next" type="button">تحدٍّ آخر ←</button>
+                </div>
+            </aside>
+        </main>
+        <div class="copyright">تجربة تعليمية استكشافية · تمثيل بياني ونموذج رياضي تفاعلي للاشتقاق</div>
+    </div>
+    <script>
+        (() => {
+            'use strict';
+            const $ = id => document.getElementById(id), svg = $('chart'), NS = 'http://www.w3.org/2000/svg';
+            const W = 860, H = 520, px = 76, py = 34, plotW = 730, plotH = 448, xmin = -4, xmax = 4, ymin = -6, ymax = 6;
+            const X = x => px + (x - xmin) / (xmax - xmin) * plotW, Y = y => py + (ymax - y) / (ymax - ymin) * plotH;
+            const fns = { sq: { f: x => x * x, df: x => 2 * x }, cube: { f: x => x * x * x / 3, df: x => x * x }, sin: { f: x => 2 * Math.sin(x), df: x => 2 * Math.cos(x) }, parabola: { f: x => (x - 1) ** 2 - 2, df: x => 2 * (x - 1) } };
+            let state = { fn: 'sq', a: 1, h: 1.5, sec: true, tan: true }; let drag = null, raf = 0; const clamp = (v, l, r) => Math.max(l, Math.min(r, v));
+            function node(tag, attrs = {}, parent = svg, text) { const e = document.createElementNS(NS, tag); for (const [k, v] of Object.entries(attrs)) e.setAttribute(k, String(v)); if (text !== undefined) e.textContent = text; parent.appendChild(e); return e }
+            function line(x1, y1, x2, y2, color, width = 2, dash = '') { return node('line', { x1, y1, x2, y2, stroke: color, 'stroke-width': width, 'stroke-linecap': 'round', ...(dash ? { 'stroke-dasharray': dash } : {}) }) }
+            function txt(x, y, val, color = '#b9c7dd', size = 13, anchor = 'middle') { return node('text', { x, y, fill: color, 'font-size': size, 'text-anchor': anchor, 'font-family': 'Tahoma, Arial, sans-serif', 'pointer-events': 'none' }, svg, val) }
+            function draw() {
+                raf = 0; const fn = fns[state.fn], { a, h } = state, fa = fn.f(a), b = a + h, fb = fn.f(b), df = fn.df(a), slope = (Math.abs(h) < 1e-8) ? df : (fb - fa) / h;
+                svg.replaceChildren(); node('rect', { width: W, height: H, fill: '#14223d' }); for (let i = -4; i <= 4; i += .5)line(X(i), py, X(i), py + plotH, '#334666', i % 1 === 0 ? 1.15 : .55); for (let i = -6; i <= 6; i++)line(px, Y(i), px + plotW, Y(i), '#334666', i % 2 === 0 ? 1.15 : .55);
+                line(X(0), py, X(0), py + plotH, '#8294b6', 2); line(px, Y(0), px + plotW, Y(0), '#8294b6', 2); for (let i = -4; i <= 4; i++)if (i !== 0) txt(X(i), Y(0) + 18, i, '#94a7c9', 12); for (let i = -6; i <= 6; i += 2)if (i !== 0) txt(X(0) - 11, Y(i) + 4, i, '#94a7c9', 12, 'end'); txt(X(0) + 13, Y(0) + 18, '0', '#ccd6e9', 12, 'start'); txt(px + plotW - 6, Y(0) - 10, 'x', '#bfd6e9', 16); txt(X(0) + 13, py + 14, 'y', '#bfd6e9', 16);
+                let curve = ''; for (let i = 0; i <= 500; i++) { let x = xmin + (xmax - xmin) * i / 500, y = fn.f(x); curve += (i ? 'L' : 'M') + X(x).toFixed(2) + ',' + Y(y).toFixed(2) } node('path', { d: curve, fill: 'none', stroke: '#ffb38d', 'stroke-width': 3.6, 'stroke-linejoin': 'round' });
+                const projected = (originX, originY, m) => { let x1 = -4, x2 = 4; return [X(x1), Y(originY + m * (x1 - originX)), X(x2), Y(originY + m * (x2 - originX))] };
+                if (state.sec) { const coords = projected(a, fa, slope); line(...coords, '#b8a0ff', 3, '9 6'); line(X(a), Y(fa), X(b), Y(fb), '#b8a0ff', 3.8) }
+                if (state.tan) { const coords = projected(a, fa, df); line(...coords, '#74e6bb', 3.4) }
+                if (Math.abs(h) > 0.015) { line(X(a), Y(fa), X(b), Y(fa), '#90a5c7', 1.5, '4 6'); line(X(b), Y(fa), X(b), Y(fb), '#90a5c7', 1.5, '4 6') }
+                const g1 = node('g', { class: 'grip', 'data-grip': 'a', role: 'slider', tabindex: 0, 'aria-label': 'اسحب نقطة A لتغيير موضع التماس' }); node('circle', { cx: X(a), cy: Y(fa), r: 21, fill: '#74e6bb', opacity: .14, stroke: '#74e6bb', 'stroke-width': 2 }, g1); node('circle', { cx: X(a), cy: Y(fa), r: 8, fill: '#74e6bb', stroke: '#fff', 'stroke-width': 2.5 }, g1);
+                const g2 = node('g', { class: 'grip', 'data-grip': 'b', role: 'slider', tabindex: 0, 'aria-label': 'اسحب النقطة B لتغيير مسافة القاطع' }); node('circle', { cx: X(b), cy: Y(fb), r: 23, fill: '#b8a0ff', opacity: .19, stroke: '#b8a0ff', 'stroke-width': 2 }, g2); node('circle', { cx: X(b), cy: Y(fb), r: 9, fill: '#b8a0ff', stroke: '#fff', 'stroke-width': 2.7 }, g2);
+                const keep = (n, l, r) => clamp(n, l, r); txt(keep(X(a) - 15, px + 13, px + plotW - 20), keep(Y(fa) - 17, py + 16, py + plotH - 10), 'A', '#b1ffe2', 15); txt(keep(X(b) + 17, px + 13, px + plotW - 20), keep(Y(fb) - 17, py + 16, py + plotH - 10), 'B', '#dfd2ff', 15);
+                $('atValue').textContent = a.toFixed(2); $('deltaValue').textContent = h.toFixed(2); $('dA').textContent = a.toFixed(2); $('dH').textContent = h.toFixed(2); $('dSlope').textContent = df.toFixed(2); $('secSlope').textContent = slope.toFixed(2); $('tanSlope').textContent = df.toFixed(2);
+                $('insightText').textContent = Math.abs(h) < .05 ? 'الآن اقتربت النقطة B من A؛ ميل القاطع يكاد يساوي ميل المماس.' : `فرق الميلين = ${Math.abs(slope - df).toFixed(3)}. حرّك النقطة B باتجاه A لتقليل الفرق.`;
+            }
+            function schedule() { if (!raf) raf = requestAnimationFrame(draw) } function setA(a) { state.a = clamp(Math.round(a * 20) / 20, -3, 3); $('at').value = state.a; schedule() } function setH(h) { state.h = clamp(Math.round(h * 20) / 20, -2.5, 2.5); $('delta').value = state.h; schedule() }
+            function pos(e) { const p = svg.createSVGPoint(); p.x = e.clientX; p.y = e.clientY; const m = svg.getScreenCTM(); return m ? p.matrixTransform(m.inverse()) : null }
+            function toX(e) { const p = pos(e); return p ? xmin + (p.x - px) / plotW * (xmax - xmin) : null }
+            svg.addEventListener('pointerdown', e => { const t = e.target.closest('[data-grip]'); if (!t) return; drag = { which: t.dataset.grip, id: e.pointerId }; svg.setPointerCapture(e.pointerId); e.preventDefault() });
+            svg.addEventListener('pointermove', e => { if (!drag || e.pointerId !== drag.id) return; const x = toX(e); if (x == null) return; if (drag.which === 'a') setA(x); else setH(x - state.a); e.preventDefault() });
+            function end(e) { if (drag && drag.id === e.pointerId) { drag = null; try { svg.releasePointerCapture(e.pointerId) } catch (_) { } } } svg.addEventListener('pointerup', end); svg.addEventListener('pointercancel', end);
+            svg.addEventListener('keydown', e => { const g = e.target.closest('[data-grip]'); if (!g || !['ArrowLeft', 'ArrowRight'].includes(e.key)) return; e.preventDefault(); const dx = e.key === 'ArrowRight' ? .05 : -.05; if (g.dataset.grip === 'a') setA(state.a + dx); else setH(state.h + dx) });
+            $('function').addEventListener('change', e => { state.fn = e.target.value; schedule() }); $('at').addEventListener('input', e => setA(+e.target.value)); $('delta').addEventListener('input', e => setH(+e.target.value));
+            for (const [id, key] of [['showSec', 'sec'], ['showTan', 'tan']]) $(id).onclick = () => { state[key] = !state[key]; $(id).classList.toggle('active', state[key]); schedule() };
+            let run = 0; $('approach').onclick = () => { cancelAnimationFrame(run); let count = 0; const move = () => { state.h *= .84; if (Math.abs(state.h) < .03) state.h = 0; state.h = Math.round(state.h * 10000) / 10000; $('delta').value = state.h; schedule(); if (++count < 35 && state.h !== 0) run = requestAnimationFrame(move) }; run = requestAnimationFrame(move) };
+            $('reset').onclick = () => { cancelAnimationFrame(run); state = { fn: 'sq', a: 1, h: 1.5, sec: true, tan: true }; $('function').value = 'sq'; $('at').value = 1; $('delta').value = 1.5; $('showSec').classList.add('active'); $('showTan').classList.add('active'); $('feedback').textContent = 'اكتب إجابتك، ثم اضغط تحقّق.'; schedule() };
+            const questions = [{ fn: 'sq', a: 1, q: 'عند a = 1، ما ميل المماس للاقتران f(x) = x²؟', ans: 2 }, { fn: 'sq', a: -2, q: 'إذا f(x) = x²، فما قيمة f′(−2)؟', ans: -4 }, { fn: 'cube', a: 2, q: 'إذا f(x) = x³/3، فما ميل المماس عند a = 2؟', ans: 4 }, { fn: 'parabola', a: 1, q: 'f(x) = (x − 1)² − 2، ما ميل المماس عند a = 1؟', ans: 0 }, { fn: 'sin', a: 0, q: 'إذا f(x) = 2 sin(x)، فما ميل المماس عند a = 0؟', ans: 2 }]; let index = 0;
+            function question() { const q = questions[index]; $('question').textContent = q.q; $('answer').value = ''; $('feedback').textContent = 'اكتب إجابتك، ثم اضغط تحقّق.'; state.fn = q.fn; state.a = q.a; state.h = 1.5; $('function').value = q.fn; $('at').value = q.a; $('delta').value = 1.5; schedule() }
+            $('check').onclick = () => { const raw = $('answer').value; if (!raw.trim()) { $('feedback').textContent = 'أدخل إجابتك أولًا.'; return } const n = Number(raw); if (!Number.isFinite(n)) { $('feedback').textContent = 'أدخل عددًا صحيحًا.'; return } const good = Math.abs(n - questions[index].ans) < .02; $('feedback').textContent = good ? '✓ صحيح! ميل المماس هو قيمة المشتقة عند a.' : `حاول مرة أخرى: قرّب h من الصفر وقارن ميل القاطع بالميل اللحظي.`; $('feedback').style.color = good ? '#83efbb' : '#ffb38d' };
+            $('answer').addEventListener('keydown', e => { if (e.key === 'Enter') $('check').click() }); $('next').onclick = () => { index = (index + 1) % questions.length; question() }; draw();
+        })();
+    </script>
+</body>
+
+</html>
